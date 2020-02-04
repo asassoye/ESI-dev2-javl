@@ -35,6 +35,20 @@ public class Memory {
         return position;
     }
 
+    public void checkPosition(int[] cards, boolean[] collectedCards, int pos1, int pos2) {
+        if (pos1 == pos2) {
+            throw new IllegalArgumentException("La pos1 doit être differente que pos2");
+        }
+
+        if (cards[pos1] == cards[pos2]) {
+            System.out.println("Elles correspondent !");
+            collectedCards[pos1] = true;
+            collectedCards[pos2] = true;
+        } else {
+            System.out.println("Elles ne correspondent pas !");
+        }
+    }
+
     private static int askInt(String notIntError) {
         Scanner input = new Scanner(System.in);
         while (!input.hasNextInt()) {
