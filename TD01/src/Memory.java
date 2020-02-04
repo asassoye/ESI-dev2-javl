@@ -1,5 +1,7 @@
 package g54327.dev2.recap;
 
+import java.util.Scanner;
+
 public class Memory {
     public static int[] initCards(int n) {
         if (n < 3 || n > 20) {
@@ -14,5 +16,30 @@ public class Memory {
         }
 
         return cards;
+    }
+
+    public static int askPosition(int[] cards, boolean[] collectedCards) {
+        int position = askIntBetween("", "", 0, cards.length - 1);
+
+        return position;
+    }
+
+    private static int askInt(String notIntError) {
+        Scanner input = new Scanner(System.in);
+        while (!input.hasNextInt()) {
+            System.out.print(notIntError);
+        }
+        return input.nextInt();
+    }
+
+    private static int askIntBetween(String notIntError, String notInIntervalError,
+                                     int pos1, int pos2) {
+        int integer;
+        do {
+            System.out.print(notInIntervalError);
+            integer = askInt(notIntError);
+        } while (!(integer <= pos2 && integer >= pos1));
+
+        return integer;
     }
 }
