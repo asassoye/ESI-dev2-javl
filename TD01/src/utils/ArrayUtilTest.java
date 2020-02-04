@@ -1,8 +1,11 @@
 package g54327.dev2.recap.utils;
 
+import org.junit.Test;
+
 import static org.junit.Assert.assertArrayEquals;
 
 public class ArrayUtilTest {
+    @Test
     public void testSwapGeneralCase() {
         System.out.println("swap general case");
 
