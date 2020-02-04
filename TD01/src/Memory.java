@@ -22,7 +22,7 @@ public class Memory {
     }
 
     public static int askPosition(int[] cards, boolean[] collectedCards) {
-        System.out.printf("Entrez une position de carte (0 à %d)", cards.length - 1);
+        System.out.printf("Entrez une position de carte (0 à %d): ", cards.length - 1);
         int position;
         do {
             position = askIntBetween(
@@ -78,13 +78,24 @@ public class Memory {
             ++tour;
         }
 
-        return tour;
+        return tour - 1;
+    }
+
+    public static void main(String[] args) {
+        System.out.println("*** Memory ***");
+        System.out.print("Avec combien de paires voulez-vous jouer? (3 à 20): ");
+        int pairs = askIntBetween(
+                "La valeur entrée n'est pas un entier",
+                String.format("La valeur entrée n'est pas compris entre %d et %d", 3, 20),
+                3, 20);
+        int tours = playMemory(pairs);
+        System.out.printf("Partie terminée en %d coups\n", tours);
     }
 
     private static int askInt(String notIntError) {
         Scanner input = new Scanner(System.in);
         while (!input.hasNextInt()) {
-            System.out.print(notIntError);
+            System.out.println(notIntError);
         }
         return input.nextInt();
     }
@@ -93,8 +104,10 @@ public class Memory {
                                      int pos1, int pos2) {
         int integer;
         do {
-            System.out.print(notInIntervalError);
             integer = askInt(notIntError);
+            if (!(integer <= pos2 && integer >= pos1)) {
+                System.out.println(notInIntervalError);
+            }
         } while (!(integer <= pos2 && integer >= pos1));
 
         return integer;
