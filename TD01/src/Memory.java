@@ -19,8 +19,19 @@ public class Memory {
     }
 
     public static int askPosition(int[] cards, boolean[] collectedCards) {
-        int position = askIntBetween("", "", 0, cards.length - 1);
+        System.out.printf("Entrez une position de carte (0 à %d)", cards.length - 1);
+        int position;
+        do {
+            position = askIntBetween(
+                    "La valeur entrée n'est pas un entier",
+                    String.format("La valeur entrée n'est pas compris entre %d et %d", 0, cards.length - 1),
+                    0, cards.length - 1);
+            if (collectedCards[position]) {
+                System.out.println("Cette carte n'est plus disponible");
+            }
+        } while (collectedCards[position]);
 
+        System.out.printf("La carte en position %d est %d.\n", position, cards[position]);
         return position;
     }
 
