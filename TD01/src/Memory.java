@@ -49,6 +49,16 @@ public class Memory {
         }
     }
 
+    public static boolean isGameOver(boolean[] collectedCards) {
+        for (boolean collected :
+                collectedCards) {
+            if (!collected) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     private static int askInt(String notIntError) {
         Scanner input = new Scanner(System.in);
         while (!input.hasNextInt()) {
