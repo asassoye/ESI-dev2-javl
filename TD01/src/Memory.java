@@ -1,5 +1,8 @@
 package g54327.dev2.recap;
 
+import g54327.dev2.recap.utils.ArrayUtil;
+import g54327.dev2.recap.utils.MemoryUtil;
+
 import java.util.Scanner;
 
 public class Memory {
@@ -35,7 +38,7 @@ public class Memory {
         return position;
     }
 
-    public void checkPosition(int[] cards, boolean[] collectedCards, int pos1, int pos2) {
+    public static void checkPosition(int[] cards, boolean[] collectedCards, int pos1, int pos2) {
         if (pos1 == pos2) {
             throw new IllegalArgumentException("La pos1 doit être differente que pos2");
         }
@@ -57,6 +60,25 @@ public class Memory {
             }
         }
         return true;
+    }
+
+    public static int playMemory(int n) {
+        int[] cards = initCards(n);
+        ArrayUtil.shuffle(cards);
+
+        boolean[] collectedCards = new boolean[cards.length];
+
+        int tour = 1;
+        while (!isGameOver(collectedCards)) {
+            System.out.printf("*** tour %d\n", tour);
+            MemoryUtil.displayCards(cards, collectedCards);
+            int pos1 = askPosition(cards, collectedCards);
+            int pos2 = askPosition(cards, collectedCards);
+            checkPosition(cards, collectedCards, pos1, pos2);
+            ++tour;
+        }
+
+        return tour;
     }
 
     private static int askInt(String notIntError) {
