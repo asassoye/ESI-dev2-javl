@@ -67,6 +67,23 @@ public class Moment {
     }
 
     /**
+     * Verify equality between two moments
+     *
+     * @param o Object to compare
+     * @return true if equal
+     */
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Moment moment = (Moment) o;
+        return
+                hour == moment.hour &&
+                        minute == moment.minute &&
+                        second == moment.second;
+    }
+
+    /**
      * Hour getter
      *
      * @return hour
