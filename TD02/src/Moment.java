@@ -57,6 +57,13 @@ public class Moment {
     }
 
     /**
+     * Constructor without parameters
+     */
+    public Moment() {
+        this(0, 0, 0);
+    }
+
+    /**
      * Format the moment in a string (H:M:S)
      *
      * @return The formatted string
