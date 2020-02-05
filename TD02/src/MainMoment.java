@@ -28,8 +28,10 @@ public class MainMoment {
     public static void main(String[] args) {
         Moment moment1 = new Moment(1, 1, 1);
         Moment moment2 = new Moment(2, 2, 2);
-        Moment moment3 = new Moment(3, 3, 3);
+        Moment moment3 = new Moment(2, 2, 2);
 
         System.out.println(moment1);
+        System.out.println(moment2.equals(moment1));
+        System.out.println(moment2.equals(moment3));
     }
 }
