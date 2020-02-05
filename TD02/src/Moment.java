@@ -31,9 +31,43 @@ public class Moment {
 
     private int second;
 
+    /**
+     * Constructor
+     *
+     * @param hour   default hour
+     * @param minute default minutes
+     * @param second default seconds
+     */
     public Moment(int hour, int minute, int second) {
         this.hour = hour;
         this.minute = minute;
         this.second = second;
+    }
+
+    /**
+     * Hour getter
+     *
+     * @return hour
+     */
+    public int getHour() {
+        return hour;
+    }
+
+    /**
+     * Minutes getter
+     *
+     * @return minutes
+     */
+    public int getMinute() {
+        return minute;
+    }
+
+    /**
+     * Seconds getter
+     *
+     * @return seconds
+     */
+    public int getSecond() {
+        return second;
     }
 }
