@@ -36,11 +36,21 @@ public class Moment {
     /**
      * Constructor
      *
-     * @param hour   default hour
-     * @param minute default minutes
-     * @param second default seconds
+     * @param hour   default hour (between 0 and 23 included)
+     * @param minute default minutes (between 0 and 59 included)
+     * @param second default seconds (between 0 and 59 included)
      */
     public Moment(int hour, int minute, int second) {
+        if ((hour < 0) || (hour > 23)) {
+            throw new IllegalArgumentException("The hour must be between 0 and 23 (included)");
+        }
+        if ((minute < 0) || (minute > 59)) {
+            throw new IllegalArgumentException("The minutes must be between 0 and 59 (included)");
+        }
+        if ((second < 0) || (second > 59)) {
+            throw new IllegalArgumentException("The seconds must be between 0 and 59 (included)");
+        }
+
         this.hour = hour;
         this.minute = minute;
         this.second = second;
