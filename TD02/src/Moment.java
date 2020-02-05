@@ -22,6 +22,8 @@ package g54327.dev2.td02;
 /**
  * Moment class
  *
+ * Abstraction of the moment in a day (in hour, minutes and seconds)
+ *
  * @author Andrew SASSOYE <andrew@sassoye.be>
  */
 public class Moment {
