@@ -47,6 +47,16 @@ public class Moment {
     }
 
     /**
+     * Format the moment in a string (H:M:S)
+     *
+     * @return The formatted string
+     */
+    @Override
+    public String toString() {
+        return String.format("%02d:%02d:%02d", hour, minute, second);
+    }
+
+    /**
      * Hour getter
      *
      * @return hour
