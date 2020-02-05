@@ -20,20 +20,16 @@
 package g54327.dev2.td02;
 
 /**
- * Moment class
+ * MainMoment class
  *
  * @author Andrew SASSOYE <andrew@sassoye.be>
  */
-public class Moment {
-    private int hour;
+public class MainMoment {
+    public static void main(String[] args) {
+        Moment moment1 = new Moment(1, 1, 1);
+        Moment moment2 = new Moment(2, 2, 2);
+        Moment moment3 = new Moment(3, 3, 3);
 
-    private int minute;
-
-    private int second;
-
-    public Moment(int hour, int minute, int second) {
-        this.hour = hour;
-        this.minute = minute;
-        this.second = second;
+        System.out.println(moment1);
     }
 }
