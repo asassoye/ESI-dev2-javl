@@ -91,6 +91,15 @@ public class Moment {
     }
 
     /**
+     * Convert Moment to seconds
+     *
+     * @return Moment in seconds
+     */
+    public int toSeconds() {
+        return this.hour * 3600 + this.minute * 60 + this.second;
+    }
+
+    /**
      * Hour getter
      *
      * @return hour
