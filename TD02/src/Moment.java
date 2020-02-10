@@ -100,6 +100,16 @@ public class Moment {
     }
 
     /**
+     * Difference between two moments
+     *
+     * @param other Moment to compare with
+     * @return 0 if the moments are identical, negative if before the other moment, positive if after other moment
+     */
+    public int compareTo(Moment other) {
+        return this.toSeconds() - other.toSeconds();
+    }
+
+    /**
      * Hour getter
      *
      * @return hour
