@@ -98,4 +98,28 @@ class MomentTest {
             Moment moment1 = new Moment(0, 0, 60);
         });
     }
+
+    @Test
+    public void testCompareTo() {
+        Moment moment1 = new Moment(1, 0, 0);
+        Moment moment2 = new Moment(2, 0, 0);
+
+        assertEquals(-3600, moment1.compareTo(moment2));
+        assertEquals(3600, moment2.compareTo(moment1));
+        assertEquals(0, moment1.compareTo(moment1));
+
+        moment1 = new Moment(0, 1, 0);
+        moment2 = new Moment(0, 2, 0);
+
+        assertEquals(-60, moment1.compareTo(moment2));
+        assertEquals(60, moment2.compareTo(moment1));
+        assertEquals(0, moment1.compareTo(moment1));
+
+        moment1 = new Moment(0, 0, 1);
+        moment2 = new Moment(0, 0, 2);
+
+        assertEquals(-1, moment1.compareTo(moment2));
+        assertEquals(1, moment2.compareTo(moment1));
+        assertEquals(0, moment1.compareTo(moment1));
+    }
 }
