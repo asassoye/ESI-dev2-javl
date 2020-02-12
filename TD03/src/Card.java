@@ -21,7 +21,6 @@ package g54327.dev2.td03;
 
 /**
  * Card class
- * <p>
  * Abstraction a Card in Memory game
  *
  * @author Andrew SASSOYE <andrew@sassoye.be>
@@ -43,6 +42,19 @@ public class Card {
 
         this.value = value;
         this.hidden = true;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Card card = (Card) o;
+        return this.value == card.value;
+    }
+
+    @Override
+    public String toString() {
+        return this.isHidden() ? "?" : String.valueOf(this.getValue());
     }
 
     /**
