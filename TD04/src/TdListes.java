@@ -13,5 +13,20 @@ public class TdListes {
         list.remove(list.size() - 1);
         list.remove(0);
         list.clear();
+
+        List<Integer> toSum = new ArrayList<>();
+        toSum.add(10);
+        toSum.add(10);
+        toSum.add(30);
+        System.out.println(sum(toSum));
+    }
+
+    public static int sum(List<Integer> list) {
+        int sum = 0;
+        for (int number : list) {
+            sum += number;
+        }
+
+        return sum;
     }
 }
