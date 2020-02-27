@@ -19,6 +19,11 @@ public class TdListes {
         toSum.add(10);
         toSum.add(30);
         System.out.println(sum(toSum));
+
+        Nombres nombres = new Nombres();
+        nombres.add(10);
+        nombres.add(10);
+        System.out.println(nombres.sum());
     }
 
     public static int sum(List<Integer> list) {
