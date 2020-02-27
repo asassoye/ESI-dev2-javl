@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/TD01.iml" filepath="$PROJECT_DIR$/.idea/TD01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TD01/TD01.iml" filepath="$PROJECT_DIR$/TD01/TD01.iml" />
       <module fileurl="file://$PROJECT_DIR$/TD02/TD02.iml" filepath="$PROJECT_DIR$/TD02/TD02.iml" />
       <module fileurl="file://$PROJECT_DIR$/TD03/TD03.iml" filepath="$PROJECT_DIR$/TD03/TD03.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TD04/TD04.iml" filepath="$PROJECT_DIR$/TD04/TD04.iml" />
     </modules>
   </component>
 </project>

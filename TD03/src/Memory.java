@@ -33,6 +33,19 @@ public class Memory {
         this.game = new Game(nbCards);
     }
 
+    public static void main(String[] args) {
+        System.out.println("*** Memory ***");
+        System.out.print("How many pairs do you want? (3 to 20): ");
+        int pairs = askIntBetween(
+                "The entered value is not an integer",
+                String.format("The entered value is not between %d et %d (included)", 3, 20),
+                3, 20);
+        Memory memory = new Memory(pairs);
+        int tours = memory.playMemory();
+
+        System.out.printf("Game finished in %d tours\n", tours);
+    }
+
     private static int askInt(String notIntError) {
         Scanner input = new Scanner(System.in);
         while (!input.hasNextInt()) {
@@ -73,17 +86,28 @@ public class Memory {
                     "The entered value is not an integer",
                     String.format("The entered value is not between %d and %d (included)", 0, this.game.getSize() - 1),
                     0, this.game.getSize() - 1);
-            if (this.game.isHidden(position)) {
+            if (!this.game.isHidden(position)) {
                 System.out.println("This card is not available anymore");
             }
-        } while (this.game.isHidden(position));
+        } while (!this.game.isHidden(position));
 
         System.out.printf("The card at position %d is %d.\n", position, this.game.getCardValue(position));
         return position;
     }
 
     public int playMemory() {
-        return 0;
+        int tours = 0;
+        this.game.shuffle();
+
+        while (!game.isGameOver()) {
+            ++tours;
+            System.out.println(this.game);
+            int pos1 = askPosition();
+            int pos2 = askPosition();
+            game.checkPositions(pos1, pos2);
+        }
+
+        return tours;
     }
 }
 
